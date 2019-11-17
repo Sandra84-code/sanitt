@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>APP SANITT</title>
+{% load static %}
+<link rel="stylesheet" type= "text/css" href="{% static 'sanitt/style.css'%}"/>
+</head>
+
+
+
+<body>
+
+<!-- Start of Page Header -->
+<div id="page_header">
+<div id="page_heading">
+<h1><br>APP SANITT<br></h1>
+<h2><br>eslogan</h2>
+</div>
+<div id="page_headerlinks">
+<ul>
+<li><a href="http://www.freewebsitetemplates.com/">ES</li>
+<li><a href="http://www.freewebsitetemplates.com/">CAT</li>
+<li><a href="http://www.freewebsitetemplates.com/">EN</li>
+<li><a href="http://www.freewebsitetemplates.com/">Help</li>
+<li class="last"><a href="http://www.freewebsitetemplates.com/">Contact</a></li>
+</ul>
+</div>
+<div id="page_headersearch">
+<h3>Search:</h3>
+<form action="http://www.freewebsitetemplates.com/">
+<div> <input type="text" /> <input src="images/button_go.gif" class="button" type="image" />
+<div class="clearthis">&nbsp;</div>
+</div>
+</form>
+</div>
+<div class="clearthis">&nbsp;</div>
+</div>
+<!-- End of Page Header --><!-- Start of Page Menu -->
+<div id="page_menu">
+<ul>
+<li><a href="http://www.freewebsitetemplates.com/">Aplication</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Targets</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Ligands</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Genes</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Drugs</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Contact</a></li>
+<li class="last"></li>
+</ul>
+</div>
+<!-- End of Page Menu --><!-- Start of Left Sidebar -->
+<div id="left_sidebar"></div>
+<!-- End of Left Sidebar -->
+<!-- Start of Main Content Area -->
+<div id="main_content">
+<!-- Start of New Item Description -->
+<div id="new_item"></div>
+<div id="new_item_header">
+<h1>{{uniprot.target_id}}</h1>
+<h2>yyyyy</h2>
+</div>
+<div id="new_item_image">  </div>
+<div id="new_item_text">
+
+
+    <ul>
+    {% for protein in protein.uniprot_set.all %}
+        <li>{{protein.bio_process}}</li>
+        <li>{{protein.ligand}}</li>
+    {% endfor %}
+    </ul>
+
+
+</div></div>
+
+<!-- End of New Item Description -->
+<div class="h_divider">&nbsp;</div>
+
+<!-- Start of Page Footer -->
+
+<!-- End of Page Footer --><!-- End of Main Content Area --></div>
+</body></html>
