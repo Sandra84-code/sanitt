@@ -20,15 +20,17 @@
 </div>
 <div id="page_headerlinks">
 <ul>
-<li><a href="">ES</li>
-<li><a href="">CAT</li>
-<li><a href="/sanitt/templates/sanitt/index.html">EN</li>
-<li><a href="">Help</li>
-<li class="last"><a href="">Contact</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">ES</li>
+<li><a href="http://www.freewebsitetemplates.com/">CAT</li>
+<li><a href="http://www.freewebsitetemplates.com/">EN</li>
+<li><a href="http://www.freewebsitetemplates.com/">Help</li>
+<li class="last"><a href="http://www.freewebsitetemplates.com/">Contact</a></li>
 </ul>
 </div>
 <div id="page_headersearch">
-
+<h3>Search:</h3>
+<form action="http://www.freewebsitetemplates.com/">
+<div> <input type="text" /> <input src="images/button_go.gif" class="button" type="image" />
 <div class="clearthis">&nbsp;</div>
 </div>
 </form>
@@ -38,13 +40,13 @@
 <!-- End of Page Header --><!-- Start of Page Menu -->
 <div id="page_menu">
 <ul>
-<li><a href="">Aplication</a></li>
-<li><a href="">Targets</a></li>
-<li><a href="">Ligands</a></li>
-<li><a href="">Genes</a></li>
-<li><a href="">Drugs</a></li>
-<li><a href="">Compound</a></li>
-<li class="last">Contact</li>
+<li><a href="http://www.freewebsitetemplates.com/">Aplication</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Targets</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Ligands</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Genes</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Drugs</a></li>
+<li><a href="http://www.freewebsitetemplates.com/">Contact</a></li>
+<li class="last"></li>
 </ul>
 </div>
 <!-- End of Page Menu --><!-- Start of Left Sidebar -->
@@ -55,31 +57,22 @@
 <!-- Start of New Item Description -->
 <div id="new_item"></div>
 <div id="new_item_header">
-<h1>TARGET</h1>
+<h1>{{ccid.compoundname}}</h1>
 <h2>yyyyy</h2>
 </div>
 <div id="new_item_image">  </div>
 <div id="new_item_text">
-{% if latest_target_list %}
+
+
     <ul>
-    {% for target in latest_target_list %}
-        <li><a href="/sanitt/target/{{target.id}}/">{{target.target_id}}</a><br><a href="https://www.guidetopharmacology.org/services/targets/{{target.target_id}}">link</a></li>
-    {% endfor%}
+    {% for compound in compound.ccid_set.all %}
+        <li><a href="/sanitt/compound/{{compound.id}}/">{{compound.ccid}}</a></li>
+        <li>{{compound.isomericsmiles}}</li>
+    {% endfor %}
     </ul>
-{% else %}
-    <p>No targets are available</p>
-{%endif%}
+
 
 </div></div>
-<div>
-<h2>Compound search:</h2>
-<form action="." method="GET">
-{{ form.csearch}}
-    <label>Enter name: </label>
-    <input id="csearch" type="text" name="name_field" placeholder="name of compound">
-    <input type="submit" value="Search">
-</form>
-</div>
 
 <!-- End of New Item Description -->
 <div class="h_divider">&nbsp;</div>

@@ -28,7 +28,13 @@
 </ul>
 </div>
 <div id="page_headersearch">
-
+<h3>Search:</h3>
+<form action="." method="GET">
+{% csrf_token %}
+    <label for="compound">Enter name: </label>
+    <input id="csearch" type="text" name="name_field" value="name of compound">
+    <input type="submit" value="Search">
+</form>
 <div class="clearthis">&nbsp;</div>
 </div>
 </form>
@@ -63,7 +69,7 @@
 {% if latest_target_list %}
     <ul>
     {% for target in latest_target_list %}
-        <li><a href="/sanitt/target/{{target.id}}/">{{target.target_id}}</a><br><a href="https://www.guidetopharmacology.org/services/targets/{{target.target_id}}">link</a></li>
+        <li><a href="/sanitt/{{target.id}}/">{{target.target_id}}</a><br><a href="https://www.guidetopharmacology.org/services/targets/{{target.target_id}}">link</a></li>
     {% endfor%}
     </ul>
 {% else %}
@@ -71,15 +77,6 @@
 {%endif%}
 
 </div></div>
-<div>
-<h2>Compound search:</h2>
-<form action="." method="GET">
-{{ form.csearch}}
-    <label>Enter name: </label>
-    <input id="csearch" type="text" name="name_field" placeholder="name of compound">
-    <input type="submit" value="Search">
-</form>
-</div>
 
 <!-- End of New Item Description -->
 <div class="h_divider">&nbsp;</div>

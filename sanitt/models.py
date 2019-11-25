@@ -12,7 +12,7 @@ class Target(models.Model):
     #def __str__(self):
         #return self.target_id
     nomenclature = models.CharField(max_length=20)
-    name = models.CharField(max_length=200)
+    tname = models.CharField(max_length=200)
     genes = models.CharField(max_length=20)
     ensemblID = models.CharField(max_length=20)
     uniprot = models.CharField(max_length=20)
@@ -32,6 +32,20 @@ class Gene(models.Model):
     organism = models.CharField(max_length=50)
     genomic = models.CharField(max_length=50)
 
+class Compound(models.Model):
+    compoundname= models.CharField(max_length=20)
+    ccid=models.IntegerField(default=0)
+    isomericsmiles=models.CharField(max_length=50)
+    
+class Compoundcid(models.Model):
+    ccid=models.ForeignKey(Compound)
+    molecularformula=models.CharField(max_length=20)
+    molecularweight=models.IntegerField(default=0)
+    #isomericsmiles=models.ForeignKey(Compound)
+    iupacname=models.CharField(max_length=200)
+    cxlogp=models.IntegerField(default=0)
+    exactmass=models.IntegerField(default=0)
+    csynonyms=models.TextField()
 
 
 #input(str("Ingresa tu búqueda \n")) #Solicitamos datos de entrada
