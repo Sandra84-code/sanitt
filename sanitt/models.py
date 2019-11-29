@@ -38,7 +38,7 @@ class Compound(models.Model):
     isomericsmiles=models.CharField(max_length=50)
     
 class Compoundcid(models.Model):
-    ccid=models.ForeignKey(Compound)
+    ccid=models.ForeignKey(Compound,on_delete=models.PROTECT)
     molecularformula=models.CharField(max_length=20)
     molecularweight=models.IntegerField(default=0)
     #isomericsmiles=models.ForeignKey(Compound)
