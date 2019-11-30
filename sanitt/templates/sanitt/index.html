@@ -73,8 +73,9 @@
 </div></div>
 <div>
 <h2>Compound search:</h2>
-<form action="." method="GET">
+<form action="." method="get">
 {{ form.csearch}}
+{% csrf_token %}
     <label>Enter name: </label>
     <input id="csearch" type="text" name="name_field" placeholder="name of compound">
     <input type="submit" value="Search">
