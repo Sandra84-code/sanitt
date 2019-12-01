@@ -13,16 +13,21 @@ from django.urls import reverse
 from django.views import generic
 from pubchempy import get_compounds
 from pubchempy import Compound
+from django.views.decorators.csrf import csrf_protect
+from .forms import CompoundForm 
 
-
+@csrf_protect
 def index(request):
     ''' This could be your actual view or a new one '''
    
     if request.method == 'GET': 
 
-        search_query = request.GET.get('csearch', None)
+        search_query = CompoundForm(request.GET)
         
-
+        if search_query.is_valid():
+            return HttpResponseRedirect('/thanks/')
+        else:
+            return HttpResponseRedirect('/doesntwork/')
     latest_target_list=Target.objects.order_by('-tname')[:5]
     context={'latest_target_list': latest_target_list}
     return render(request,'sanitt/index.html',context)
