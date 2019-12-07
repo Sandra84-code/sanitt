@@ -22,7 +22,7 @@
 <ul>
 <li><a href="">ES</li>
 <li><a href="">CAT</li>
-<li><a href="/sanitt/templates/sanitt/index.html">EN</li>
+<li><a href="">EN</li>
 <li><a href="">Help</li>
 <li class="last"><a href="">Contact</a></li>
 </ul>
@@ -52,35 +52,56 @@
 <!-- End of Left Sidebar -->
 <!-- Start of Main Content Area -->
 <div id="main_content">
+<ul>
+<li>
 <!-- Start of New Item Description -->
 <div id="new_item"></div>
+
+<ul>
+<li><a href="alltargets">All Targets</a></li>
+</ul>
 <div id="new_item_header">
 <h1>TARGET</h1>
 <h2>yyyyy</h2>
 </div>
 <div id="new_item_image">  </div>
 <div id="new_item_text">
-{% if latest_target_list %}
-    <ul>
-    {% for target in latest_target_list %}
-        <li><a href="/sanitt/target/{{target.id}}/">{{target.target_id}}</a><br><a href="https://www.guidetopharmacology.org/services/targets/{{target.target_id}}">link</a></li>
-    {% endfor%}
-    </ul>
+
+</div></div>
+<div>
+<br>
+<br>
+<h2>Compound search:</h2>
+
+<form action="." method="get">
+{{ form.compound}}
+{% csrf_token %}
+    <label>Enter name: </label>
+    <input id="csearch" type="text" name="compound" placeholder="name of compound">
+    <input type="submit" value="Search">
+</form>
+<br>
+<br>
+<div>
+<h2>Target search:</h2>
+
+<form action="." method="get">
+{{ form.target}}
+{% csrf_token %}
+    <label>Enter name: </label>
+    <input id= "tsearch" type="text" name="searchString" placeholder="name of target">
+    <input type="submit" value="Search">
+</form>
+{% if tname_list %}
+<ul>
+<li><a href="https://www.guidetopharmacology.org/services/targets/{{target.target_id}}">{{target.target_id}}</a></li>
+<li>{{target.target_id}}</li>
+</ul>
+</div>
 {% else %}
     <p>No targets are available</p>
 {%endif%}
 
-</div></div>
-<div>
-<h2>Compound search:</h2>
-<form action="." method="get">
-{{ form.csearch}}
-{% csrf_token %}
-    <label>Enter name: </label>
-    <input id="csearch" type="text" name="name_field" placeholder="name of compound">
-    <input type="submit" value="Search">
-</form>
-</div>
 
 <!-- End of New Item Description -->
 <div class="h_divider">&nbsp;</div>
