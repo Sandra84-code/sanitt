@@ -16,37 +16,30 @@
 <div id="page_header">
 <div id="page_heading">
 <h1><br>APP SANITT<br></h1>
-<h2><br>eslogan</h2>
+<h2><br>Find your molecule</h2>
 </div>
 <div id="page_headerlinks">
 <ul>
-<li><a href="http://www.freewebsitetemplates.com/">ES</li>
-<li><a href="http://www.freewebsitetemplates.com/">CAT</li>
-<li><a href="http://www.freewebsitetemplates.com/">EN</li>
-<li><a href="http://www.freewebsitetemplates.com/">Help</li>
-<li class="last"><a href="http://www.freewebsitetemplates.com/">Contact</a></li>
+<li><a href="">ES</li>
+<li><a href="">CAT</li>
+<li><a href="">EN</li>
+<li><a href="">Help</li>
+<li class="last"><a href="">Contact</a></li>
 </ul>
 </div>
-<div id="page_headersearch">
-<h3>Search:</h3>
-<form action="http://www.freewebsitetemplates.com/">
-<div> <input type="text" /> <input src="images/button_go.gif" class="button" type="image" />
-<div class="clearthis">&nbsp;</div>
-</div>
-</form>
-</div>
+
 <div class="clearthis">&nbsp;</div>
 </div>
 <!-- End of Page Header --><!-- Start of Page Menu -->
 <div id="page_menu">
 <ul>
-<li><a href="http://www.freewebsitetemplates.com/">Aplication</a></li>
-<li><a href="http://www.freewebsitetemplates.com/">Targets</a></li>
-<li><a href="http://www.freewebsitetemplates.com/">Ligands</a></li>
-<li><a href="http://www.freewebsitetemplates.com/">Genes</a></li>
-<li><a href="http://www.freewebsitetemplates.com/">Drugs</a></li>
-<li><a href="http://www.freewebsitetemplates.com/">Contact</a></li>
-<li class="last"></li>
+<li><a href={% url 'sanitt:index' %}>Home</a></li>
+<li><a href="">Targets</a></li>
+<li><a href="">Ligands</a></li>
+<li><a href="">Genes</a></li>
+<li><a href="">Drugs</a></li>
+<li><a href="">Contact</a></li>
+<li class=""></li>
 </ul>
 </div>
 <!-- End of Page Menu --><!-- Start of Left Sidebar -->
@@ -56,26 +49,78 @@
 <div id="main_content">
 <!-- Start of New Item Description -->
 <div id="new_item"></div>
+
 <div id="new_item_header">
-<h1>{{uniprot.target_id}}</h1>
-<h2>yyyyy</h2>
+
 </div>
 <div id="new_item_image">  </div>
+
 <div id="new_item_text">
 
+{% if tquery %}
+<h1>Search of results Target: {{tquery}}</h1>
+<br>
+<br>
+    <table>
+        <tr>
+        <td>Target ID</td><td>{{target_id}}</td>
+        </tr>
+        <tr>
+        <td>Type</td><td>{{ttype}}</td>
+        </tr>
+        <tr>
+        <td>Name</td><td>{{tname}}</td>
+        </tr>
+        <tr>
+        <td>Nomenclature</td><td>{{nomenclature}}</td>
+        </tr>
+        <tr>
+        <td>Family ID</td><td>{{tfamily}}</td>
+        </tr>
+    </table>
+<br>
+<br>
+<br>
+    <table>
+        <tr>
+        <td>Ligand ID</td><td>{{ligand_id}}</td>
+        </tr>
+        <tr>
+        <td>Ligand Name</td><td>{{ligand_name}}</td>
+        </tr>
+        <tr>
+        <td>Ligand Nomenclature</td><td>{{lnomenclature}}</td>
+        </tr>
+        <tr>
+        <td>Ligand Type</td><td>{{ltype}}</td>
+        </tr>
+    </table>
+<br>
+<br>
+<br>
+    <table>
+        <tr>
+        <td>PDB ID</td><td>{{pdb_id}}</td>
+        </tr>
+        <tr>
+        <td>Description</td><td>{{pdb_descrip}}</td>
+        </tr>
+        <tr>
+        <td>Resolution</td><td>{{pdb_resolution}}</td>
+        </tr>
+        <tr>
+        <td>Species</td><td>{{pdb_specie}}</td>
+        </tr>
+    </table>
 
-    <ul>
-    {% for protein in protein.uniprot_set.all %}
-        <li>{{protein.bio_process}}</li>
-        <li>{{protein.ligand}}</li>
-    {% endfor %}
-    </ul>
+{% else %}
+<h4> Not found results </h4>
+<p> <a href="index">try again</a></p>
 
-
-</div></div>
-
+</div>
+{% endif %}
 <!-- End of New Item Description -->
-<div class="h_divider">&nbsp;</div>
+<div class="h_divider">bla bla</div>
 
 <!-- Start of Page Footer -->
 
