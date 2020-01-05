@@ -1,0 +1,27 @@
+
+{% extends 'sanitt/base.html' %}
+{% block content %}
+<!-- Start of New Item Description -->
+<div id="new_item">
+<div id="new_item_header">
+<h1> Compound Search</h1></div>
+<div id="new_item_image"></div>
+<div id="new_item_text">
+<br>
+<br>
+<h2>Compound search:</h2>
+<p> Search for your chemical compound by name (example:aspirin, ibuprofen, ..)</p>
+<form action={% url 'sanitt:searchcomp' %} method='get'>{% csrf_token %}
+<label for="q"></label>
+<input type="text" name="q" value="{{ query }}">
+<input type="submit" value="Search">
+</form>
+<br>
+<br>
+<br>
+<br>
+
+
+</div></div>
+ 
+{%endblock%}

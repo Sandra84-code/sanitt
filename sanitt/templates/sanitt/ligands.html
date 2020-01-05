@@ -1,0 +1,31 @@
+
+{% extends 'sanitt/base.html' %}
+{% block content %}
+<!-- Start of New Item Description -->
+<div id="new_item">
+<div id="new_item_header">
+<h1> What is a ligand?</h1></div>
+<div id="new_item_image"></div>
+<div id="new_item_text">
+<p> In biochemistry and pharmacology, a ligand is a substance that forms a compound with a biomolecule to perform a biological function. In protein-ligand interaction, the ligand is usually a molecule that produces a signal by binding to a specific location on a target protein. 
+
+Bonding occurs by intermolecular forces, such as ionic bonds, hydrogen bonds, and Van der Waals forces. The coupling association is reversible through dissociation. 
+
+Ligand binding to a receptor protein alters conformation by affecting the orientation of the three-dimensional shape. The conformation of a receptor protein composes the functional state. 
+
+Ligands include substrates, inhibitors, activators, signaling lipids, and neurotransmitters. The rate of binding is called affinity, and this measure tells us a trend or strength of the effect. In the binding affinity along with host-host interactions the effects of the solvent are also important, as it provides a chemical environment for the ligand and receptor to accept or reject each other.
+ </p>
+<br>
+<br>
+
+<h2>Ligand search:</h2>
+<p> Search for your ligand by name</p>
+<form action={% url 'sanitt:ligand' %}  method='get'>{% csrf_token %}
+    <label for="l" ></label>
+    <input name= "l" type="text" value="{{ lquery }}">
+    <input type="submit" value="Search">
+</form>
+
+</div></div>
+ 
+{%endblock%}

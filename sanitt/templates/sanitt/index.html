@@ -1,168 +1,47 @@
-<!DOCTYPE html>
-<html >
-<head>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<title>APP SANITT</title>
-{% load static %}
-<link rel="stylesheet" type= "text/css" href="{% static 'sanitt/style.css'%}"/>
-</head>
 
-
-
-<body>
-
-<!-- Start of Page Header -->
-<div id="page_header">
-<div id="page_heading">
-<h1><br>APP SANITT<br></h1>
-<h2><br>Find your molecule</h2>
-</div>
-<div id="page_headerlinks">
-<ul>
-<li><a href="">ES</li>
-<li><a href="">CAT</li>
-<li><a href="">EN</li>
-<li><a href="">Help</li>
-<li class="last"><a href="">Contact</a></li>
-</ul>
-</div>
-<div id="page_headersearch">
-
-<div class="clearthis">&nbsp;</div>
-</div>
-</form>
-</div>
-<div class="clearthis">&nbsp;</div>
-</div>
-<!-- End of Page Header --><!-- Start of Page Menu -->
-<div id="page_menu">
-<ul>
-<li><a href="">Aplication</a></li>
-<li><a href="">Targets</a></li>
-<li><a href="">Ligands</a></li>
-<li><a href="">Genes</a></li>
-<li><a href="">Drugs</a></li>
-<li><a href="">Compound</a></li>
-<li class="last">Contact</li>
-</ul>
-</div>
-<!-- End of Page Menu --><!-- Start of Left Sidebar -->
-<div id="left_sidebar"></div>
-<!-- End of Left Sidebar -->
-<!-- Start of Main Content Area -->
-<div id="main_content">
-<ul>
-<li>
+{% extends 'sanitt/base.html' %}
+{% block content %}
 <!-- Start of New Item Description -->
-<div id="new_item"></div>
-
-<ul>
-<li><a href="alltargets">All Targets</a></li>
-</ul>
-
+<div id="new_item">
 <div id="new_item_header">
-<div id="new_item_image">  </div>
+<h1> Search page</h1></div>
+<div id="new_item_image"></div>
 <div id="new_item_text">
+<p> Welcome to the SANITT application, this application has been created with the intention of providing in the same search the information of several databases, among them IUPHAR, PDB and PubChem.</p>
+<br>
+<br>
 <h2>Compound search:</h2>
-
+<p> Search for your chemical compound by name</p>
 <form action={% url 'sanitt:searchcomp' %} method='get'>{% csrf_token %}
-<label for="q">Search: </label>
+<label for="q"></label>
 <input type="text" name="q" value="{{ query }}">
 <input type="submit" value="Search">
 </form>
 <br>
 <br>
+<br>
+<br>
 <h2>Target search:</h2>
-
+<p> Search for your target by name</p>
 <form action={% url 'sanitt:detail' %}  method='get'>{% csrf_token %}
-    <label for="t" >Search: </label>
+    <label for="t" ></label>
     <input name= "t" type="text" value="{{ tquery }}">
     <input type="submit" value="Search">
 </form>
-</div></div>
 
 <br>
 <br>
 <br>
 <br>
 
-<!-- End of New Item Description -->
-<div class="h_divider">&nbsp;</div>
-
-<!-- Start of Page Footer -->
-
-<!-- End of Page Footer --><!-- End of Main Content Area --></div>
-</body></html>
-<li><a href="">Aplication</a></li>
-<li><a href="">Targets</a></li>
-<li><a href="">Ligands</a></li>
-<li><a href="">Genes</a></li>
-<li><a href="">Drugs</a></li>
-<li><a href="">Compound</a></li>
-<li class="last">Contact</li>
-</ul>
-</div>
-<!-- End of Page Menu --><!-- Start of Left Sidebar -->
-<div id="left_sidebar"></div>
-<!-- End of Left Sidebar -->
-<!-- Start of Main Content Area -->
-<div id="main_content">
-<ul>
-<li>
-<!-- Start of New Item Description -->
-<div id="new_item"></div>
-
-<ul>
-<li><a href="alltargets">All Targets</a></li>
-</ul>
-<div id="new_item_header">
-<h1>TARGET</h1>
-<h2>yyyyy</h2>
-</div>
-<div id="new_item_image">  </div>
-<div id="new_item_text">
-
-</div></div>
-<div>
-<br>
-<br>
-<h2>Compound search:</h2>
-
-<form action="." method="get">
-{{ form.compound}}
-{% csrf_token %}
-    <label>Enter name: </label>
-    <input id="csearch" type="text" name="compound" placeholder="name of compound">
+<h2>Ligand search:</h2>
+<p> Search for your ligand by name</p>
+<form action={% url 'sanitt:ligand' %}  method='get'>{% csrf_token %}
+    <label for="l" ></label>
+    <input name= "l" type="text" value="{{ lquery }}">
     <input type="submit" value="Search">
 </form>
-<br>
-<br>
-<div>
-<h2>Target search:</h2>
 
-<form action="." method="get">
-{{ form.target}}
-{% csrf_token %}
-    <label>Enter name: </label>
-    <input id= "tsearch" type="text" name="searchString" placeholder="name of target">
-    <input type="submit" value="Search">
-</form>
-{% if tname_list %}
-<ul>
-<li><a href="https://www.guidetopharmacology.org/services/targets/{{target.target_id}}">{{target.target_id}}</a></li>
-<li>{{target.target_id}}</li>
-</ul>
-</div>
-{% else %}
-    <p>No targets are available</p>
-{%endif%}
-
-
-<!-- End of New Item Description -->
-<div class="h_divider">&nbsp;</div>
-
-<!-- Start of Page Footer -->
-
-<!-- End of Page Footer --><!-- End of Main Content Area --></div>
-</body></html>
+</div></div>
+ 
+{%endblock%}

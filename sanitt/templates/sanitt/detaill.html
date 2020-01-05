@@ -1,0 +1,77 @@
+
+{% extends 'sanitt/base.html'%}
+{% block content %}
+<!-- Start of New Item Description -->
+<div id="new_item"></div>
+
+<div id="new_item_header">
+
+
+<h2>Search of results Target: {{targetid}}</h2>
+</div>
+<div id="new_item_image">  </div>
+<div id="new_item_text">
+<br>
+<br>
+<br>
+    <table>
+        <tr>
+        <td>PDB ID</td><td><a href="https://www.rcsb.org/structure/{{pdb_id}}">{{pdb_id}}</a></td>
+        </tr>
+        <tr>
+        <td>Description</td><td>{{pdb_descrip}}</td>
+        </tr>
+        <tr>
+        <td>Resolution</td><td>{{pdb_resolution}}</td>
+        </tr>
+        <tr>
+        <td>Species</td><td>{{pdb_specie}}</td>
+        </tr>
+    </table>
+<br>
+<br>
+<br>
+    <table>
+        <tr>
+        <td>Disease ID</td><td>{{dis_id}}</td>
+        </tr>
+        <tr>
+        <td>Name</td><td>{{disname}}</td>
+        </tr>
+        <tr>
+        <td>Drug</td><td>{{drug}}</td>
+        </tr>
+    </table>
+<br>
+<br>
+<br>
+    <table>
+        <tr>
+        <td>Interaction ID</td><td>{{interactionid}}</td>
+        </tr>
+        <tr>
+        <td>Ligand ID</td><td>{{iligand_id}}</td>
+        </tr>
+        <tr>
+        <td>Ligand Name</td><td>{{iligandname}}</td>
+        </tr>
+        <tr>
+        <td>Interaction Type</td><td>{{itype}}</td>
+        </tr>
+        <tr>
+        <td>Action</td><td>{{iaction}}</td>
+        </tr>
+        <tr>
+        <td>Affinity</td><td>{{iaffinity}}</td>
+        </tr>
+        <tr>
+        <td>Affinty Parameter</td><td>{{iaffinityp}}</td>
+        </tr>
+    </table>
+<br>
+<br>
+<br>
+</div>
+<div> <img src="http://www.rcsb.org/pdb/images/{{pdb_id}}_bio_r_500.jpg" width="200"></div>
+
+{% endblock %}

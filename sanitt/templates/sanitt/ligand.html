@@ -1,0 +1,65 @@
+
+{% extends 'sanitt/base.html'%}
+{% block content %}
+<!-- Start of New Item Description -->
+<div id="new_item"></div>
+{% if lquery %}
+<div id="new_item_header">
+<h2>Search of results Ligand: {{lquery}}</h2>
+</div>
+<div id="new_item_image"></div>
+
+<div id="new_item_text">
+    <ul>
+        <li>
+        <p>Ligand ID: {{ligandid}}</p>
+        </li>
+        <li>
+        <p>Ligand Name: {{ligandname}}</p>
+        </li>
+        <li>
+        <p>Ligand Nomenclature: {{ligandnomcl}}</p>
+        </li>
+        <li>
+        <p>Ligand Type: {{ligandtype}}</p>
+        </li>
+    </ul>
+<br>
+<br>
+<br>
+<div><img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{{lcid}}/png" width="200"></div> 
+<ul>
+    <li>
+      <p>CID: <a href="detailc">{{ lcid }}</a></p>
+    </li>
+     <li>
+     <p>Description: {{ ldescription }}</p>
+    </li>
+     <li>
+     <p>Molecular Formula: {{ lmolecularformula }}</p>
+    </li>
+     <li>
+     <p>Molecular Weight: {{lmolecularweight }}</p>
+    </li>
+     <li>
+     <p>Isomeric SMILES: {{ lisomericsmiles }}</p>
+    </li>
+     <li>
+     <p>XLogP: {{ lcxlogp }}</p>
+    </li>     
+     <li>
+     <p>ExactMass: {{ lexactmass }}</p>
+    </li>
+     <li>
+     <p>Synonyms: {{ lsynonyms }}</p>
+    </li>
+</ul>
+
+ 
+{% else %}
+<h4> Not found results </h4>
+<p> <a href="index">try again</a></p>
+{% endif %}
+
+</div>
+{% endblock %}

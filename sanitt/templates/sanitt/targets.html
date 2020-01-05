@@ -1,0 +1,28 @@
+
+{% extends 'sanitt/base.html' %}
+{% block content %}
+<!-- Start of New Item Description -->
+<div id="new_item">
+<div id="new_item_header">
+<h1> What is a target protein?</h1></div>
+<div id="new_item_image"></div>
+<div id="new_item_text">
+<p> Target proteins are functional biomolecules directed and controlled by biologically active compounds. They are used in the processes of transduction, transformation and conjugation. Target protein identification, research and interaction with ligands are key elements of modern biomedical research. Since interaction with target proteins is the molecular origin of most drugs, it is of great importance to molecular biology, molecular pharmacy and pharmaceutical sciences. 
+Target proteins control the action and kinetic activity of drugs in the body. 
+Target proteins can also be drugs themselves when their modification and formulation is emphasized within the pharmaceutical sciences. </p>
+<br>
+<br>
+
+<h2>Target search:</h2>
+<p> Search for your target by name</p>
+<form action={% url 'sanitt:detail' %}  method='get'>{% csrf_token %}
+    <label for="t" ></label>
+    <input name= "t" type="text" value="{{ tquery }}">
+    <input type="submit" value="Search">
+</form>
+
+
+
+</div></div>
+ 
+{%endblock%}
